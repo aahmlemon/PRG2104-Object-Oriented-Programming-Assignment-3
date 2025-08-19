@@ -5,7 +5,7 @@ ThisBuild / scalaVersion := "3.3.4"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "introtosclafx",
+    name := "Assignmnent3",
     libraryDependencies ++= {
       // Determine OS version of JavaFX binaries
       val osName = System.getProperty("os.name") match {
