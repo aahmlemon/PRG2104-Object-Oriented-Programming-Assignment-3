@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ahmad.controller.MarketPaneController">
+
+    <top>
+        <ToolBar styleClass="market-toolbar">
+            <Label text="Market (today)" styleClass="title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label text="Tip: Prices change daily"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <HBox spacing="12" style="-fx-padding: 10;">
+            <VBox HBox.hgrow="ALWAYS">
+                <TitledPane text="Prices" collapsible="false" VBox.vgrow="ALWAYS">
+                    <TableView fx:id="priceTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colProd" text="Produce" prefWidth="200"/>
+                            <TableColumn fx:id="colPrice" text="Price" prefWidth="100"/>
+                            <TableColumn fx:id="colHave" text="Have"/>
+                            <TableColumn fx:id="colDelta" text="Δ"/>
+                        </columns>
+                        <placeholder>
+                            <Label text="No prices today."/>
+                        </placeholder>
+                    </TableView>
+                </TitledPane>
+            </VBox>
+
+            <VBox spacing="10" prefWidth="260">
+                <TitledPane text="Sell" collapsible="false" VBox.vgrow="NEVER">
+                    <VBox spacing="8">
+                        <Label text="Produce"/>
+                        <ComboBox fx:id="sellProduceCombo" promptText="Choose…"/>
+
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <Label text="Qty"/>
+                            <Spinner fx:id="sellQtySpinner" prefWidth="120"/>
+                            <Label fx:id="haveLbl" text="/ 0" styleClass="muted"/>
+                        </HBox>
+
+                        <HBox spacing="6">
+                            <Label text="Price:"/>
+                            <Label fx:id="livePriceLbl" styleClass="mono"/>
+                        </HBox>
+
+                        <HBox spacing="6">
+                            <Label text="Revenue:"/>
+                            <Label fx:id="liveRevenueLbl" styleClass="mono strong"/>
+                        </HBox>
+
+                        <Button fx:id="btnSell" text="Sell" maxWidth="Infinity"/>
+                    </VBox>
+                </TitledPane>
+                <Label text="Select a row to prefill the Sell form." styleClass="muted small"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
+
+
