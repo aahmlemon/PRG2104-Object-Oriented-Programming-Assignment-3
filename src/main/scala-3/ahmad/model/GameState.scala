@@ -36,6 +36,7 @@ final class GameState(
     else withGrid(grid.updated(i, g(grid(i))))
 
   def addMoney(delta: Int): GameState  = withMoney(money + delta)
+  
   def nextDay(): GameState             = withDay(day + 1)
 }
 

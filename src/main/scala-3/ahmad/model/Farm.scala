@@ -9,6 +9,7 @@ final class Farm(
   def yieldPerHarvest: Int = 1 + yieldLevel
 
   def withIrrigationLevel(n: Int): Farm = new Farm(n, yieldLevel)
+  
   def withYieldLevel(n: Int): Farm      = new Farm(irrigationLevel, n)
 }
 

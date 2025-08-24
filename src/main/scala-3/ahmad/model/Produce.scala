@@ -8,19 +8,19 @@ sealed trait Produce {
 
 final case class Rice() extends Produce {
   val name = "Rice"
-  val nutritionPerUnit: Nutrition = Nutrition(200, 5, 45, 2)
+  val nutritionPerUnit: Nutrition = Nutrition(2000, 50, 450, 20)
   val daysToMature = 3
 }
 
 final case class Beans() extends Produce {
   val name = "Beans"
-  val nutritionPerUnit: Nutrition = Nutrition(150, 10, 20, 8)
+  val nutritionPerUnit: Nutrition = Nutrition(1500, 100, 200, 80)
   val daysToMature = 3
 }
 
 final case class Vegetables() extends Produce {
   val name = "Vegetables"
-  val nutritionPerUnit: Nutrition = Nutrition(80, 3, 10, 20)
+  val nutritionPerUnit: Nutrition = Nutrition(800, 30, 100, 200)
   val daysToMature = 2
 }
 

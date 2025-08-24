@@ -24,6 +24,7 @@ final class Family(
   def withStockpile(n: Nutrition): Family =
     new Family(name, dailyNeed, assigned, n)
 }
+
 object Family {
   def apply(name: String, dailyNeed: Nutrition, assigned: Map[Produce,Int] = Map.empty, stockpile: Nutrition = Nutrition.Zero): Family =
     new Family(name, dailyNeed, assigned, stockpile)
