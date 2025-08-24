@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="720" prefWidth="1200" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ahmad.controller.FarmGridController">
+
+    <!-- LEFT: Farm area (house on top, plots below) -->
+    <center>
+        <VBox spacing="16" BorderPane.alignment="CENTER">
+            <padding><Insets bottom="0" left="16" right="16" top="16" /></padding>
+
+            <!-- Banner -->
+            <StackPane styleClass="farm-banner">
+                <ImageView fx:id="farmHouseImage" fitHeight="180" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                    <image><Image url="@/assets/images/farmhouse.png" /></image>
+                </ImageView>
+            </StackPane>
+
+            <!-- Plots -->
+            <TitledPane expanded="true" text="Plots" collapsible="false">
+                <content>
+                    <GridPane fx:id="gridPane" hgap="16" styleClass="plots" vgap="16">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                            <ColumnConstraints percentWidth="25" />
+                        </columnConstraints>
+                        <padding><Insets bottom="14" left="14" right="14" top="14" /></padding>
+                    </GridPane>
+                </content>
+            </TitledPane>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox maxWidth="320" prefWidth="300" spacing="12" styleClass="sidebar">
+            <padding><Insets bottom="12" left="12" right="12" top="12" /></padding>
+
+            <TitledPane expanded="true" text="Crops" collapsible="false">
+                <content>
+                    <ScrollPane fitToWidth="true" prefHeight="520">
+                        <content>
+                            <TilePane fx:id="seedTilePane" hgap="10" prefColumns="1" vgap="10" />
+                        </content>
+                    </ScrollPane>
+                </content>
+            </TitledPane>
+
+            <HBox spacing="8">
+                <Label text="Selected:" />
+                <Label fx:id="selectedSeedLabel" style="-fx-font-weight: bold;" text="(none)" />
+            </HBox>
+        </VBox>
+    </right>
+
+    <padding><Insets bottom="12" left="12" right="12" top="12" /></padding>
+</BorderPane>
