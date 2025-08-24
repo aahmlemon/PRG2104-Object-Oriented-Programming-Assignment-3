@@ -1,0 +1,176 @@
+/* ---------- Theme ---------- */
+.root {
+    -fx-font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: #eaf6e3; /* soft green */
+    -fx-base: #f7f7f9;
+    -fx-control-inner-background: white;
+}
+
+/* toolbar on top (day/money/end day) */
+.tool-bar {
+    -fx-background-color: linear-gradient(#ffffff, #f3f3f6);
+    -fx-padding: 8 12;
+    -fx-spacing: 10;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ---------- Farm screen ---------- */
+.farm-root {
+    -fx-background-color: #f8fafc;
+}
+
+/* banner image area */
+.farm-banner {
+    -fx-padding: 12 0 4 0;
+}
+
+/* cards */
+.card {
+    -fx-background-color: #1f2937;      /* dark slate */
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 2);
+}
+
+.card--active {
+    -fx-background-color: #2f6e55;      /* green when planted */
+}
+
+.plot-button {
+    -fx-background-color: #dcdcdc;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+.plot-button:hover {
+    -fx-opacity: 0.9;
+}
+.plot-button:pressed {
+    -fx-background-color: #bcbcbc;
+}
+.plot-button.planted {
+    -fx-background-color: #88c999; /* green for growing */
+}
+
+/* titled panes */
+.titled-pane > .title {
+    -fx-background-radius: 8 8 0 0;
+}
+.titled-pane > *.content {
+    -fx-background-radius: 0 0 8 8;
+    -fx-background-insets: 0, 1;
+}
+
+/* right sidebar */
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 12;
+}
+
+/* seed cards */
+.seed-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-padding: 10;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+}
+.seed-card:hover {
+    -fx-background-color: #f3f4f6;
+}
+.seed-card.selected {
+    -fx-border-color: #22c55e;
+    -fx-border-width: 2;
+}
+
+/* Title screen */
+.title-root {
+    -fx-background-color: linear-gradient(#eaf6e3, #e2f1d8); /* soft green gradient */
+}
+
+.title-panel {
+    -fx-background-color: rgba(255,255,255,0.85);
+    -fx-background-radius: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 20, 0.25, 0, 4);
+}
+
+.title-heading {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1a2e22;
+    -fx-padding: 0 0 8 0;
+}
+
+.title-btn {
+    -fx-background-color: #2f6e55;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-background-radius: 10;
+    -fx-padding: 10 18;
+}
+.title-btn:hover { -fx-background-color: #3b8568; }
+
+.title-btn--secondary {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5d1;
+    -fx-text-fill: #1a2e22;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 10 18;
+}
+.title-btn--secondary:hover { -fx-background-color: #f5f7f6; }
+
+
+/* Card look */
+.family-card {
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+    -fx-font-size: 14px;
+}
+.family-card-ok  { -fx-background-color: #2e7d32; -fx-text-fill: white; }
+.family-card-bad { -fx-background-color: #424242; -fx-text-fill: white; }
+.family-card-selected {
+    -fx-border-color: -fx-accent;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+}
+
+/* Right-side metric coloring */
+.metric-box { -fx-padding: 8; }
+.metric-ok  { -fx-text-fill: #1b5e20; -fx-font-weight: bold; }
+.metric-bad { -fx-text-fill: #b71c1c; -fx-font-weight: bold; }
+
+/* Base planted style */
+.button.planted {
+    -fx-background-color: #4CAF50; /* green for growing */
+    -fx-text-fill: white;
+}
+
+/* Harvest ready highlight */
+.button.ready {
+    -fx-background-color: #FFD700; /* golden yellow */
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-color: #DAA520;
+    -fx-border-width: 2;
+}
+
+.market-toolbar .title { -fx-font-size: 16px; -fx-font-weight: bold; }
+
+.side-panel { -fx-padding: 10; }
+.muted { -fx-opacity: 0.7; }
+.small { -fx-font-size: 11px; }
+.mono  { -fx-font-family: "Consolas", "Courier New", monospace; }
+.strong { -fx-font-weight: bold; }
+
+/* Table number alignment */
+.table-cell.number { -fx-alignment: CENTER_RIGHT; }
+
+/* Δ pill styling (we’ll set style classes from cellFactory) */
+.delta-up    { -fx-text-fill: #176b37; -fx-font-weight: bold; }
+.delta-down  { -fx-text-fill: #9b1c1c; -fx-font-weight: bold; }
