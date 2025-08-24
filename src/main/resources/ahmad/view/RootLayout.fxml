@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="root"
+            fx:controller="ahmad.controller.RootLayoutController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="_File">
+                    <MenuItem text="Save…" onAction="#onSave" accelerator="Ctrl+S"/>
+                    <MenuItem text="Load…" onAction="#onLoad" accelerator="Ctrl+L"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Back to Title…" onAction="#onBackToTitle" accelerator="Ctrl+X"/>
+                </Menu>
+                <Menu text="F_arm">
+                    <MenuItem text="Open Farm Grid" onAction="#openFarm" accelerator="Ctrl+F"/>
+                </Menu>
+                <Menu text="Fami_lies">
+                    <MenuItem text="Open Families Pane" onAction="#openFamilies" accelerator="Ctrl+G"/>
+                </Menu>
+                <Menu text="_Market">
+                    <MenuItem text="Open Market Pane" onAction="#openMarket" accelerator="Ctrl+M"/>
+                </Menu>
+                <Menu text="_Upgrades">
+                    <MenuItem text="Open Upgrades Pane" onAction="#openUpgrades" accelerator="Ctrl+U"/>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <Label fx:id="dayLabel" text="Day 1"/>
+                <Separator/>
+                <Label text="Money:"/>
+                <Label fx:id="moneyLabel" text="0"/>
+
+                <Separator/>
+                <Label text="Rice:"/>
+                <Label fx:id="riceQty" text="0"/>
+                <Label text="Beans:"/>
+                <Label fx:id="beansQty" text="0"/>
+                <Label text="Vegetables:"/>
+                <Label fx:id="vegsQty" text="0"/>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnEndDay" text="End Day" onAction="#endDay"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+</BorderPane>
