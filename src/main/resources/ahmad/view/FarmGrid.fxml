@@ -19,28 +19,29 @@
     <!-- LEFT: Farm area (house on top, plots below) -->
     <center>
         <VBox spacing="16" BorderPane.alignment="CENTER">
-            <padding><Insets bottom="0" left="16" right="16" top="16" /></padding>
+            <padding><Insets left="16" right="16" top="16" /></padding>
 
             <!-- Banner -->
             <StackPane styleClass="farm-banner">
-                <ImageView fx:id="farmHouseImage" fitHeight="180" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
-                    <image><Image url="@/assets/images/farmhouse.png" /></image>
+                <ImageView fx:id="farmHouseImage" fitHeight="180" pickOnBounds="true" preserveRatio="true"
+                           StackPane.alignment="CENTER">
+                    <Image url="@/assets/images/farmhouse.png"/>
                 </ImageView>
             </StackPane>
 
             <!-- Plots -->
-            <TitledPane expanded="true" text="Plots" collapsible="false">
-                <content>
-                    <GridPane fx:id="gridPane" hgap="16" styleClass="plots" vgap="16">
-                        <columnConstraints>
-                            <ColumnConstraints percentWidth="25" />
-                            <ColumnConstraints percentWidth="25" />
-                            <ColumnConstraints percentWidth="25" />
-                            <ColumnConstraints percentWidth="25" />
-                        </columnConstraints>
-                        <padding><Insets bottom="14" left="14" right="14" top="14" /></padding>
-                    </GridPane>
-                </content>
+            <TitledPane text="Plots" collapsible="false">
+                <GridPane fx:id="gridPane" hgap="16" styleClass="plots" vgap="16">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                    </columnConstraints>
+                    <padding>
+                        <Insets bottom="14" left="14" right="14" top="14"/>
+                    </padding>
+                </GridPane>
             </TitledPane>
         </VBox>
     </center>
@@ -49,14 +50,10 @@
         <VBox maxWidth="320" prefWidth="300" spacing="12" styleClass="sidebar">
             <padding><Insets bottom="12" left="12" right="12" top="12" /></padding>
 
-            <TitledPane expanded="true" text="Crops" collapsible="false">
-                <content>
-                    <ScrollPane fitToWidth="true" prefHeight="520">
-                        <content>
-                            <TilePane fx:id="seedTilePane" hgap="10" prefColumns="1" vgap="10" />
-                        </content>
-                    </ScrollPane>
-                </content>
+            <TitledPane text="Crops" collapsible="false">
+                <ScrollPane fitToWidth="true" prefHeight="520">
+                    <TilePane fx:id="seedTilePane" hgap="10" prefColumns="1" vgap="10"/>
+                </ScrollPane>
             </TitledPane>
 
             <HBox spacing="8">
