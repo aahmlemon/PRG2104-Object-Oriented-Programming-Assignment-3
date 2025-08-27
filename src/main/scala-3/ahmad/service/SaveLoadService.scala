@@ -64,10 +64,12 @@ object SaveLoadService {
   private def toDTO(gs: GameState, market: MarketService): GameSnapshotDTO = {
     val fams = gs.families.map { f =>
       val dn = f.dailyNeed
+      val sp = f.stockpile
       FamilyDTO(
         name = f.name,
         dailyNeed = NutritionDTO(dn.cal, dn.protein, dn.carbs, dn.vitamins),
-        assigned = f.assigned.map { case (p, q) => idOf(p) -> q }
+        assigned = f.assigned.map { case (p, q) => idOf(p) -> q },
+        stockpile = Some(NutritionDTO(sp.cal, sp.protein, sp.carbs, sp.vitamins))
       )
     }
 
@@ -112,10 +114,15 @@ object SaveLoadService {
   private def fromDTO(dto: GameSnapshotDTO): (GameState, MarketService) = {
     val fams = dto.families.map { f =>
       val n = f.dailyNeed
+      val sp = f.stockpile
+        .map(s => new Nutrition(s.cal, s.protein, s.carbs, s.vitamins))
+        .getOrElse(Nutrition.Zero)
+      
       new Family(
         name       = f.name,
         dailyNeed  = new Nutrition(n.cal, n.protein, n.carbs, n.vitamins),
-        assigned   = f.assigned.map { case (id, q) => produceOf(id) -> q }
+        assigned   = f.assigned.map { case (id, q) => produceOf(id) -> q },
+        stockpile = sp
       )
     }.toVector
 

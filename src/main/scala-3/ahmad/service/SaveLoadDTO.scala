@@ -1,7 +1,6 @@
 package ahmad.service
 
 final case class NutritionDTO(cal: Int, protein: Int, carbs: Int, vitamins: Int)
-final case class FamilyDTO(name: String, dailyNeed: NutritionDTO, assigned: Map[String, Int])
 final case class CropTileDTO(seed: Option[String], daysGrown: Int)
 final case class StorageDTO(stock: Map[String, Int])
 final case class MarketDTO(prices: Map[String, Int])
@@ -16,3 +15,10 @@ final case class GameSnapshotDTO(
                                   farm: FarmDTO,
                                   market: MarketDTO
                                 )
+
+final case class FamilyDTO(
+                            name: String,
+                            dailyNeed: NutritionDTO,
+                            assigned: Map[String, Int],
+                            stockpile: Option[NutritionDTO] = None
+                          )

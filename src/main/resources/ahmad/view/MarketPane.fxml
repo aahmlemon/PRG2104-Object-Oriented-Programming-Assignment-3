@@ -50,13 +50,13 @@
 
                         <HBox spacing="6">
                             <Label text="Revenue:"/>
-                            <Label fx:id="liveRevenueLbl" styleClass="mono strong"/>
+                            <Label fx:id="liveRevenueLbl" styleClass="mono" />
                         </HBox>
 
                         <Button fx:id="btnSell" text="Sell" maxWidth="Infinity"/>
                     </VBox>
                 </TitledPane>
-                <Label text="Select a row to prefill the Sell form." styleClass="muted small"/>
+                <Label text="Select a row to prefill the Sell form." styleClass="muted"/>
             </VBox>
         </HBox>
     </center>

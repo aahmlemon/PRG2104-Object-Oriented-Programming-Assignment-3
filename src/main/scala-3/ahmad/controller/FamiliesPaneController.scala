@@ -1,7 +1,7 @@
 package ahmad.controller
 
 import ahmad.model.*
-import ahmad.util.Refreshable
+import ahmad.util.{InventoryAware, Refreshable}
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.layout.{HBox, Priority, TilePane, VBox}
@@ -26,7 +26,7 @@ import scala.jdk.CollectionConverters.*
   * Collaboration:
   * - Relies on GameController for the list of families and assignment actions.
   */
-final class FamiliesPaneController(private val game: GameController) extends Refreshable {
+final class FamiliesPaneController(private val game: GameController) extends Refreshable, InventoryAware {
 
   // FXML nodes
   @FXML private var familyGrid: TilePane = _
@@ -52,6 +52,9 @@ final class FamiliesPaneController(private val game: GameController) extends Ref
 
   /** Refreshes the entire pane from the current game state. */
   override def refresh(): Unit = refreshAll()
+
+  private var onInvChanged: () => Unit = () => ()
+  override def setOnInventoryChanged(cb: () => Unit): Unit = onInvChanged = cb
 
   /** FXML initialize hook.
     *
@@ -246,7 +249,7 @@ final class FamiliesPaneController(private val game: GameController) extends Ref
       a.setHeaderText("Not enough stock in storage.")
       a.showAndWait()
     }
-
+    onInvChanged()
     refreshAll()
     updateGiveSummary()
   }

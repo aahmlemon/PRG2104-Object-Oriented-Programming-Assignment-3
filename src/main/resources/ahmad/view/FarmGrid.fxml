@@ -31,7 +31,7 @@
 
             <!-- Plots -->
             <TitledPane text="Plots" collapsible="false">
-                <GridPane fx:id="gridPane" hgap="16" styleClass="plots" vgap="16">
+                <GridPane fx:id="gridPane" hgap="16" styleClass="mono" vgap="16">
                     <columnConstraints>
                         <ColumnConstraints percentWidth="25"/>
                         <ColumnConstraints percentWidth="25"/>

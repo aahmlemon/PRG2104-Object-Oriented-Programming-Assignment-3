@@ -129,6 +129,9 @@ final class RootLayoutController(private val game: GameController) {
       SaveLoadService.load(f.toPath) match
         case Success((gs2, market2)) =>
           game.replaceState(gs2, market2)
+          currentCenterController match
+            case r: Refreshable => r.refresh()
+            case _ => ()
           refreshHeader()
         case Failure(ex) =>
           val a = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR)
