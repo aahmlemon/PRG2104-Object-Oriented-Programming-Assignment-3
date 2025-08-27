@@ -114,25 +114,30 @@ final class FarmGridController(private val game: GameController) extends Refresh
 
     b.setOnAction { _ =>
       val tile = game.gs.grid(i)
-      
-      selectedSeed match
-        case None =>
-          val a = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION)
-          a.setHeaderText("No seed selected")
-          a.setContentText("Pick a seed from the Crops list on the right.")
-          a.showAndWait()
 
-        case Some(seed) =>
-          if (tile.seed.isEmpty) then {
-            game.plantAt(i, seed)
-            refreshPlotButton(i, b)
-            pingInventoryChanged()
-          } else {
-            game.harvestAt(i)
-            refreshPlotButton(i, b)
-            pingInventoryChanged()
-          }
-          refreshPlotButton(i, b)
+      if (game.harvestAt(i)) {
+        refreshPlotButton(i, b)
+        onInvChanged() // update header counts
+      } else if (tile.seed.isEmpty) {
+        // Empty tile -> need a selected seed to plant
+        selectedSeed match {
+          case Some(seed) =>
+            if (game.plantAt(i, seed)) {
+              refreshPlotButton(i, b)
+            }
+          case None =>
+            val a = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION)
+            a.setHeaderText("No seed selected")
+            a.setContentText("Pick a seed from the Crops list on the right.")
+            a.showAndWait()
+        }
+      } else {
+        // Tile has a crop but it's not mature yet
+        val a = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION)
+        a.setHeaderText("Not ready to harvest")
+        a.setContentText("This crop is still growing.")
+        a.showAndWait()
+      }
     }
 
     refreshPlotButton(i, b)
